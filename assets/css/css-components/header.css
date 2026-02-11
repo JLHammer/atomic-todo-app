@@ -1,19 +1,32 @@
-body > header {
-  /* position: fixed;
-  top: 0; */
+.app-header {
+  display: flex;
   width: 100%;
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  padding: 1rem;
+  /* background-color: var(--bg-color);
+  color: var(--text-color); */
   text-align: center;
   z-index: 11;
+  justify-content: space-between;
 }
 
-body > header > nav {
+.app-header > .logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.app-header > .logo-wrapper > .logo {
+  width: 5rem;
+  height: auto;
+}
+
+.app-header > nav {
   width: 100%;
   display: flex;
 }
 
-body > header > nav > ul {
+.app-header > nav > ul {
   width: 100%;
   padding: 1rem 2rem;
   display: flex;
@@ -23,17 +36,17 @@ body > header > nav > ul {
   list-style-type: none;
 }
 
-body > header > nav > ul > li {
+.app-header > nav > ul > li {
   width: 100%;
 }
 
-body > header > nav > ul > li > a {
+.app-header > nav > ul > li > a {
   display: inline-block;
   padding: 0.25rem 0.5rem;
   transform: scale(1);
   transition: 0.3s transform ease-in-out;
 }
 
-body > header > nav > ul > li > a:hover {
+.app-header > nav > ul > li > a:hover {
   transform: scale(1.2);
 }

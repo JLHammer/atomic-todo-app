@@ -1,5 +1,8 @@
 console.log("atoms.js loaded");
 
+// Common namespace for SVG elements
+const xmlns = "http://www.w3.org/2000/svg";
+
 // div atom
 export const DivElm = ({ id = "", className = "" } = {}) => {
   const elm = document.createElement("div");
@@ -79,9 +82,17 @@ export const InputElm = (
 };
 
 // button atom
-export const ButtonElm = (textContent, { id = "", className = "" } = {}) => {
+export const ButtonElm = ({
+  textContent = "",
+  onClick = null,
+  type = "button",
+  id = "",
+  className = "",
+} = {}) => {
   const elm = document.createElement("button");
   elm.textContent = textContent;
+  if (onClick) elm.addEventListener("click", onClick);
+  elm.type = type;
   elm.id = id;
   elm.className = className;
   return elm;
@@ -115,5 +126,30 @@ export const AnchorElm = (
   elm.textContent = textContent;
   elm.id = id;
   elm.className = className;
+  return elm;
+};
+
+// svg atom
+export const SvgElm = (
+  width = 24,
+  height = 24,
+  viewBox = "0 0 24 24",
+  { id = "", className = "" } = {},
+) => {
+  const elm = document.createElementNS(xmlns, "svg");
+  elm.setAttribute("width", width);
+  elm.setAttribute("height", height);
+  elm.setAttribute("viewBox", viewBox);
+  elm.id = id;
+  if (className) elm.setAttribute("class", className);
+  return elm;
+};
+
+// path atom
+export const PathElm = (d, { id = "", className = "" } = {}) => {
+  const elm = document.createElementNS(xmlns, "path");
+  elm.setAttribute("d", d);
+  elm.id = id;
+  if (className) elm.setAttribute("class", className);
   return elm;
 };

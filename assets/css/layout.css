@@ -21,8 +21,8 @@ aside,
 main,
 section,
 article {
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  /* background-color: var(--bg-color);
+  color: var(--text-color); */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,4 +46,64 @@ main > section > article {
   width: 100%;
   padding: 2rem;
   text-align: left;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: var(--heading-color);
+}
+
+/* Paragraphs */
+
+/* Links */
+a,
+a:visited,
+a:hover,
+a:active {
+  display: inline-block;
+  color: inherit; /* Get color from parent element; color will be the same for all link states */
+  text-decoration: none; /* Removes underline from links */
+}
+
+/* Media */
+img,
+picture,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+div:has(> img:only-child) {
+  overflow: hidden;
+}
+
+div > img:only-child {
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+div > img:only-child:hover {
+  transform: scale(1.02);
+}
+
+/* Code */
+pre {
+  background-color: #1e1e1e;
+  border-radius: 6px;
+  padding: 15px;
+  margin: 0 0 10px 0;
+  overflow-x: auto;
+}
+
+code {
+  color: #00ff00;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
 }
