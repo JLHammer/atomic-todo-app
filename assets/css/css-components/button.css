@@ -1,0 +1,79 @@
+button {
+  padding: var(--button-padding);
+  font-family: var(--font-family);
+  font-size: 1.6rem;
+  font-weight: 500;
+  background-color: var(--button-color);
+  color: var(--button-text-color);
+  border: var(--button-color) 2px solid;
+  border-radius: var(--button-border-radius);
+  transition: 0.15s ease-in-out;
+}
+
+button:hover {
+  box-shadow: var(--button-box-shadow);
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+button:disabled {
+  background-color: #ccc;
+  border-color: #ccc;
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+/* Open modal button */
+button.modal-open-btn {
+  background-color: var(--button-color);
+  color: var(--white);
+}
+
+/* Form buttons */
+/* Submit & Reset button common styling */
+div.form-btn-group > button {
+  color: var(--white);
+}
+
+button[type="submit"] {
+  background-color: var(--button-green-color);
+  border-color: var(--button-green-color);
+}
+
+button[type="submit"]:hover {
+  box-shadow: 0 0 5px 2px var(--button-green-color);
+}
+
+button[type="submit"]:disabled {
+  background-color: var(--button-grey-color);
+  border-color: var(--button-grey-color);
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+button[type="submit"]:disabled:hover {
+  transform: none;
+}
+
+button[type="reset"] {
+  background-color: var(--button-red-color);
+  border-color: var(--button-red-color);
+}
+
+button[type="reset"]:hover {
+  box-shadow: 0 0 5px 2px var(--button-red-color);
+}
+
+button[type="reset"]:disabled {
+  background-color: var(--button-grey-color);
+  border-color: var(--button-grey-color);
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+button[type="reset"]:disabled:hover {
+  transform: none;
+}

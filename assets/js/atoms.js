@@ -1,7 +1,28 @@
 console.log("atoms.js loaded");
 
-// img ATOM
-export const createImgElm = (src, alt, id = "", className = "") => {
+// div atom
+export const DivElm = ({ id = "", className = "" } = {}) => {
+  const elm = document.createElement("div");
+  elm.id = id;
+  elm.className = className;
+  return elm;
+};
+
+// h1-6 atom
+export const HeadingElm = (
+  textContent,
+  level,
+  { id = "", className = "" } = {},
+) => {
+  const elm = document.createElement(`h${level}`);
+  elm.textContent = textContent;
+  elm.id = id;
+  elm.className = className;
+  return elm;
+};
+
+// img atom
+export const ImgElm = (src, alt, { id = "", className = "" } = {}) => {
   const elm = document.createElement("img");
   elm.src = src;
   elm.alt = alt;
@@ -10,35 +31,17 @@ export const createImgElm = (src, alt, id = "", className = "") => {
   return elm;
 };
 
-// div ATOM
-export const createHeadingElm = (innerText, level, id = "", className = "") => {
-  const elm = document.createElement(`h${level}`);
-  elm.textContent = innerText;
-  elm.id = id;
-  elm.className = className;
-  return elm;
-};
-
-// p ATOM
-export const createParagraphElm = (innerText, id = "", className = "") => {
+// p atom
+export const ParagraphElm = (textContent, { id = "", className = "" } = {}) => {
   const elm = document.createElement("p");
-  elm.textContent = innerText;
+  elm.textContent = textContent;
   elm.id = id;
   elm.className = className;
   return elm;
 };
 
-// button ATOM
-export const createButtonElm = (innerText, id = "", className = "") => {
-  const elm = document.createElement("button");
-  elm.textContent = innerText;
-  elm.id = id;
-  elm.className = className;
-  return elm;
-};
-
-// form ATOM
-export const createFormElm = (method = "GET", id = "", className = "") => {
+// form atom
+export const FormElm = (method = "GET", { id = "", className = "" } = {}) => {
   const elm = document.createElement("form");
   elm.method = method;
   elm.id = id;
@@ -46,43 +49,70 @@ export const createFormElm = (method = "GET", id = "", className = "") => {
   return elm;
 };
 
-// input ATOM
-export const createInputElm = (
-  type,
-  placeholder = "",
-  id = "",
-  className = "",
+// label atom
+export const LabelElm = (
+  textContent,
+  htmlFor,
+  { id = "", className = "" } = {},
 ) => {
-  const elm = document.createElement("input");
-  elm.type = type;
-  elm.placeholder = placeholder;
+  const elm = document.createElement("label");
+  elm.htmlFor = htmlFor;
+  elm.textContent = textContent;
   elm.id = id;
   elm.className = className;
   return elm;
 };
 
-// ul ATOM
-export const createUlElm = (id = "", className = "") => {
+// input atom
+export const InputElm = (
+  type,
+  fname = id,
+  { placeholder = "", className = "" } = {},
+) => {
+  const elm = document.createElement("input");
+  elm.type = type;
+  elm.name = fname;
+  elm.id = fname;
+  elm.placeholder = placeholder || "";
+  elm.className = className;
+  return elm;
+};
+
+// button atom
+export const ButtonElm = (textContent, { id = "", className = "" } = {}) => {
+  const elm = document.createElement("button");
+  elm.textContent = textContent;
+  elm.id = id;
+  elm.className = className;
+  return elm;
+};
+
+// ul atom
+export const UlElm = ({ id = "", className = "" } = {}) => {
   const elm = document.createElement("ul");
   elm.id = id;
   elm.className = className;
   return elm;
 };
 
-// li ATOM
-export const createLiElm = (innerText, id = "", className = "") => {
+// li atom
+export const LiElm = (textContent, { id = "", className = "" } = {}) => {
   const elm = document.createElement("li");
-  elm.textContent = innerText;
+  elm.textContent = textContent;
   elm.id = id;
   elm.className = className;
   return elm;
 };
 
-// a ATOM
-export const createAnchorElm = (href, innerText, id = "", className = "") => {
+// a atom
+export const AnchorElm = (
+  href,
+  textContent,
+  { id = "", className = "" } = {},
+) => {
   const elm = document.createElement("a");
   elm.href = href;
-  elm.textContent = innerText;
+  elm.textContent = textContent;
   elm.id = id;
   elm.className = className;
   return elm;

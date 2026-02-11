@@ -1,9 +1,20 @@
 console.log("main.js loaded");
 
-import {} from "./atoms.js";
-import {} from "./molecules.js";
-import {} from "./organisms.js";
+import { Header, Main, Footer } from "./organisms.js";
 
-const app = document.getElementById("app");
+const App = () => {
+  const app = document.getElementById("app");
+  app.innerHTML = "";
 
+  const header = Header();
+  const main = Main();
+  const footer = Footer();
 
+  // Append organisms to the app container
+  app.append(header, main, footer);
+
+  return app;
+};
+
+App();
+console.log("App served successfully.");

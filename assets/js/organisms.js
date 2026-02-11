@@ -1,10 +1,25 @@
 console.log("organisms.js loaded");
 
-import {AppName} from "./atoms.js";
+// Imports for header
+import {} from "./atoms.js";
+import {} from "./molecules.js";
+// Imports for main
+import {} from "./atoms.js";
+import { FormGroup } from "./molecules.js";
+// Imports for footer
+import {} from "./atoms.js";
 import {} from "./molecules.js";
 
-export function Header(Logo, AppName, BurgerMenu) {}
+// header
 
-export function Main() {}
+export function Header(Logo, BurgerMenu) {}
+
+// main
+export function Main() {
+  const toDoGroup = FormGroup();
+  return toDoGroup;
+}
+
+// footer
 
 export function Footer() {}
