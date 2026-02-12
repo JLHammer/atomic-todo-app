@@ -2,42 +2,32 @@ form {
   display: flex;
   justify-content: center;
   width: 100%;
-  max-width: 640px;
+  padding: 2rem;
 }
 
 form > fieldset {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
   border-radius: 999rem;
-  padding: 3.5rem;
+  padding: 2rem;
+  border: 1px solid black;
 }
 
 form > fieldset > legend {
   padding: 0 1rem;
+  text-align: center;
+  font-weight: bold;
 }
 
-form > fieldset > legend > h2 {
-  font-size: 4rem;
-  letter-spacing: 3px;
-  margin: 0;
-}
-
-form > fieldset > label {
+form fieldset label {
   display: block;
-  margin-top: 1.8rem;
-  margin-bottom: 0.6rem;
   font-size: 2rem;
   letter-spacing: 1px;
 }
 
-form > fieldset > input,
-form > fieldset > textarea {
-  width: 100%;
-  padding: 1.3rem 1.4rem;
-  font-size: 2rem;
-  border-radius: 999rem;
-  transition: all 0.25s ease;
+form fieldset input {
+}
+
+form fieldset textarea {
+  resize: none;
 }
 
 form input:focus,
@@ -47,9 +37,4 @@ form textarea:focus {
 
 ::placeholder {
   opacity: 0.6;
-}
-
-textarea {
-  min-height: 200px;
-  resize: none;
 }

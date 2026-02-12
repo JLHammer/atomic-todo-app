@@ -7,9 +7,12 @@ import {
   ButtonElm,
   SvgElm,
   PathElm,
-} from "./atoms.js"; // For header
-import { FormElm, LabelElm, InputElm } from "./atoms.js"; // For main
-import {} from "./atoms.js"; // For footer
+  FormElm,
+  FieldsetElm,
+  LegendElm,
+  LabelElm,
+  InputElm,
+} from "./atoms.js";
 
 // For header
 export const Logo = () => {
@@ -47,11 +50,18 @@ export const BurgerMenu = ({ onClick }) => {
 
 // For main
 export const FormGroup = (onClickDeleteBtn, onClickOrderBtn) => {
-  const elm = FormElm("GET");
+  const elm = FormElm("GET", { id: "todo-form" });
 
+  const div = DivElm({ className: "todo-group" });
+  const fieldset = FieldsetElm();
+  const legend = LegendElm("To-Do");
   const label = LabelElm("To-Do Item", "todo-checkbox");
-  const inputCheckBox = InputElm("checkbox", "todo-checkbox");
-  const inputActive = InputElm("text", "todo-active");
+  const inputCheckBox = InputElm("checkbox", "todo-checkbox", {
+    className: "todo-checkbox",
+  });
+  const inputActive = InputElm("checkbox", "todo-active", {
+    className: "active-checkbox",
+  });
   const deleteButton = ButtonElm({
     textContent: "x",
     className: "delete-button",
@@ -65,7 +75,9 @@ export const FormGroup = (onClickDeleteBtn, onClickOrderBtn) => {
     onEvent: onClickOrderBtn,
   });
 
-  elm.append(inputCheckBox, label, inputActive, deleteButton, orderButton);
+  div.append(inputCheckBox, label, inputActive, deleteButton, orderButton);
+  fieldset.append(legend, div);
+  elm.appendChild(fieldset);
   return elm;
 };
 

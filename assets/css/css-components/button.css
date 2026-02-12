@@ -13,7 +13,7 @@ button {
 button:hover {
   box-shadow: var(--button-box-shadow);
   cursor: pointer;
-  transform: scale(1.05);
+  /* transform: scale(1.05); */
 }
 
 button:disabled {

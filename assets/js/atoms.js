@@ -90,6 +90,15 @@ export const FieldsetElm = ({ id = "", className = "" } = {}) => {
   return elm;
 };
 
+// legend atom
+export const LegendElm = (textContent, { id = "", className = "" } = {}) => {
+  const elm = document.createElement("legend");
+  elm.textContent = textContent;
+  elm.id = id;
+  elm.className = className;
+  return elm;
+};
+
 // label atom
 export const LabelElm = (
   textContent,

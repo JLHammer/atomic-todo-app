@@ -1,14 +1,7 @@
 console.log("organisms.js loaded");
 
-// Imports for header
-import { HeaderElm } from "./atoms.js";
-import { Logo, H1, BurgerMenu } from "./molecules.js";
-// Imports for main
-import { MainElm } from "./atoms.js";
-import { FormGroup } from "./molecules.js";
-// Imports for footer
-import { FooterElm } from "./atoms.js";
-import {} from "./molecules.js";
+import { HeaderElm, MainElm, FooterElm } from "./atoms.js";
+import { Logo, H1, BurgerMenu, FormGroup } from "./molecules.js";
 
 // header
 export function Header() {
