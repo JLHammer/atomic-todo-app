@@ -3,9 +3,39 @@ console.log("atoms.js loaded");
 // Common namespace for SVG elements
 const xmlns = "http://www.w3.org/2000/svg";
 
+export const HeaderElm = ({ id = "", className = "" } = {}) => {
+  const elm = document.createElement("header");
+  elm.id = id;
+  elm.className = className;
+  return elm;
+};
+
+export const MainElm = ({ id = "", className = "" } = {}) => {
+  const elm = document.createElement("main");
+  elm.id = id;
+  elm.className = className;
+  return elm;
+};
+
+export const FooterElm = ({ id = "", className = "" } = {}) => {
+  const elm = document.createElement("footer");
+  elm.id = id;
+  elm.className = className;
+  return elm;
+};
+
 // div atom
 export const DivElm = ({ id = "", className = "" } = {}) => {
   const elm = document.createElement("div");
+  elm.id = id;
+  elm.className = className;
+  return elm;
+};
+
+// span atom
+export const SpanElm = (textContent, { id = "", className = "" } = {}) => {
+  const elm = document.createElement("span");
+  elm.textContent = textContent;
   elm.id = id;
   elm.className = className;
   return elm;
@@ -52,6 +82,14 @@ export const FormElm = (method = "GET", { id = "", className = "" } = {}) => {
   return elm;
 };
 
+// fieldset atom
+export const FieldsetElm = ({ id = "", className = "" } = {}) => {
+  const elm = document.createElement("fieldset");
+  elm.id = id;
+  elm.className = className;
+  return elm;
+};
+
 // label atom
 export const LabelElm = (
   textContent,
@@ -84,14 +122,15 @@ export const InputElm = (
 // button atom
 export const ButtonElm = ({
   textContent = "",
-  onClick = null,
+  eventType = "click",
+  onEvent = null,
   type = "button",
   id = "",
   className = "",
 } = {}) => {
   const elm = document.createElement("button");
   elm.textContent = textContent;
-  if (onClick) elm.addEventListener("click", onClick);
+  if (eventType && onEvent) elm.addEventListener(eventType, onEvent);
   elm.type = type;
   elm.id = id;
   elm.className = className;

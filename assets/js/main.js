@@ -6,7 +6,7 @@ const App = () => {
   const app = document.getElementById("app");
   app.innerHTML = "";
 
-  const header = Header({ onBurgerClick: toggleBurgerMenu });
+  const header = Header();
   const main = Main();
   const footer = Footer();
 
@@ -14,11 +14,6 @@ const App = () => {
   app.append(header, main, footer);
   return app;
 };
-
-function toggleBurgerMenu() {
-  // Placeholder for burger menu toggle functionality
-  console.log("Menu toggled");
-}
 
 App();
 console.log("App served successfully.");

@@ -29,7 +29,11 @@ export const H1 = () => {
 };
 
 export const BurgerMenu = ({ onClick }) => {
-  const elm = ButtonElm({ className: "burger-menu", onClick });
+  const elm = ButtonElm({
+    className: "burger-menu",
+    eventType: "click",
+    onEvent: onClick,
+  });
   const svg = SvgElm(24, 24, "0 0 24 24");
   const topLinePath = PathElm("M3 6h18");
   const middleLinePath = PathElm("M3 12h18");
@@ -42,15 +46,26 @@ export const BurgerMenu = ({ onClick }) => {
 };
 
 // For main
-export const FormGroup = () => {
+export const FormGroup = (onClickDeleteBtn, onClickOrderBtn) => {
   const elm = FormElm("GET");
 
-  const label = LabelElm("To-Do Item", "todo-input");
-  const input = InputElm("text", "todo-input", {
-    placeholder: "Enter a to-do item",
+  const label = LabelElm("To-Do Item", "todo-checkbox");
+  const inputCheckBox = InputElm("checkbox", "todo-checkbox");
+  const inputActive = InputElm("text", "todo-active");
+  const deleteButton = ButtonElm({
+    textContent: "x",
+    className: "delete-button",
+    eventType: "click",
+    onEvent: onClickDeleteBtn,
+  });
+  const orderButton = ButtonElm({
+    textContent: "☰",
+    className: "order-button",
+    eventType: "click",
+    onEvent: onClickOrderBtn,
   });
 
-  elm.append(label, input);
+  elm.append(inputCheckBox, label, inputActive, deleteButton, orderButton);
   return elm;
 };
 
