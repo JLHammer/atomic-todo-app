@@ -7,7 +7,7 @@ const App = () => {
   app.innerHTML = "";
 
   const header = Header();
-  const main = Main();
+  const main = Main("To-Do List Name", "To-Do", "Completed");
   const footer = Footer();
 
   // Append organisms to the app container

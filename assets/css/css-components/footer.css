@@ -1,18 +1,17 @@
 footer {
-  /* position: fixed;
-  bottom: 0; */
+  position: fixed;
+  bottom: 0;
   width: 100%;
+  padding: 0.5rem 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  letter-spacing: 0.1em;
   text-align: center;
   background-color: var(--bg-color);
   color: var(--text-color);
   z-index: 10;
-}
-
-footer > address {
-  width: 100%;
-  padding: 1rem 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  font-style: normal;
 }

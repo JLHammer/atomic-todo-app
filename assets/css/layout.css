@@ -31,7 +31,6 @@ article {
 
 main {
   height: fit-content;
-  gap: 1rem;
   font-size: 1.8rem; /* Slightly larger font size for main content */
 }
 

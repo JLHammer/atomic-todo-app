@@ -49,16 +49,13 @@ export const BurgerMenu = ({ onClick }) => {
 };
 
 // For main
-export const FormGroup = (onClickDeleteBtn, onClickOrderBtn) => {
-  const elm = FormElm("GET", { id: "todo-form" });
+export const ToDoItem = (onClickDeleteBtn, onClickOrderBtn) => {
+  const elm = DivElm({ className: "todo-group" });
 
-  const div = DivElm({ className: "todo-group" });
-  const fieldset = FieldsetElm();
-  const legend = LegendElm("To-Do");
-  const label = LabelElm("To-Do Item", "todo-checkbox");
   const inputCheckBox = InputElm("checkbox", "todo-checkbox", {
     className: "todo-checkbox",
   });
+  const label = LabelElm("To-Do Item", "todo-checkbox");
   const inputActive = InputElm("checkbox", "todo-active", {
     className: "active-checkbox",
   });
@@ -75,9 +72,7 @@ export const FormGroup = (onClickDeleteBtn, onClickOrderBtn) => {
     onEvent: onClickOrderBtn,
   });
 
-  div.append(inputCheckBox, label, inputActive, deleteButton, orderButton);
-  fieldset.append(legend, div);
-  elm.appendChild(fieldset);
+  elm.append(inputCheckBox, label, inputActive, deleteButton, orderButton);
   return elm;
 };
 
