@@ -3,45 +3,28 @@ console.log("atoms.js loaded");
 // Common namespace for SVG elements
 const xmlns = "http://www.w3.org/2000/svg";
 
-export const HeaderElm = ({ id = "", className = "" } = {}) => {
-  const elm = document.createElement("header");
+// === The most basic atom; forcing html tag type specification ===
+export const BasicElm = (tagName, { id = "", className = "" } = {}) => {
+  const elm = document.createElement(tagName);
   elm.id = id;
   elm.className = className;
   return elm;
 };
 
-export const MainElm = ({ id = "", className = "" } = {}) => {
-  const elm = document.createElement("main");
-  elm.id = id;
-  elm.className = className;
-  return elm;
-};
-
-export const FooterElm = ({ id = "", className = "" } = {}) => {
-  const elm = document.createElement("footer");
-  elm.id = id;
-  elm.className = className;
-  return elm;
-};
-
-// div atom
-export const DivElm = ({ id = "", className = "" } = {}) => {
-  const elm = document.createElement("div");
-  elm.id = id;
-  elm.className = className;
-  return elm;
-};
-
-// span atom
-export const SpanElm = (textContent, { id = "", className = "" } = {}) => {
-  const elm = document.createElement("span");
+// === Text atom ===
+export const TextElm = (
+  tagName,
+  textContent,
+  { id = "", className = "" } = {},
+) => {
+  const elm = document.createElement(tagName);
   elm.textContent = textContent;
   elm.id = id;
   elm.className = className;
   return elm;
 };
 
-// h1-6 atom
+// === h1-6 atom ===
 export const HeadingElm = (
   textContent,
   level,
@@ -54,7 +37,7 @@ export const HeadingElm = (
   return elm;
 };
 
-// img atom
+// === src atom ===
 export const ImgElm = (src, alt, { id = "", className = "" } = {}) => {
   const elm = document.createElement("img");
   elm.src = src;
@@ -64,16 +47,7 @@ export const ImgElm = (src, alt, { id = "", className = "" } = {}) => {
   return elm;
 };
 
-// p atom
-export const ParagraphElm = (textContent, { id = "", className = "" } = {}) => {
-  const elm = document.createElement("p");
-  elm.textContent = textContent;
-  elm.id = id;
-  elm.className = className;
-  return elm;
-};
-
-// form atom
+// === form atom ===
 export const FormElm = (method = "GET", { id = "", className = "" } = {}) => {
   const elm = document.createElement("form");
   elm.method = method;
@@ -82,15 +56,7 @@ export const FormElm = (method = "GET", { id = "", className = "" } = {}) => {
   return elm;
 };
 
-// fieldset atom
-export const FieldsetElm = ({ id = "", className = "" } = {}) => {
-  const elm = document.createElement("fieldset");
-  elm.id = id;
-  elm.className = className;
-  return elm;
-};
-
-// legend atom
+// === legend atom ===
 export const LegendElm = (textContent, { id = "", className = "" } = {}) => {
   const elm = document.createElement("legend");
   elm.textContent = textContent;
@@ -99,7 +65,7 @@ export const LegendElm = (textContent, { id = "", className = "" } = {}) => {
   return elm;
 };
 
-// label atom
+// === label atom ===
 export const LabelElm = (
   textContent,
   htmlFor,
@@ -113,7 +79,7 @@ export const LabelElm = (
   return elm;
 };
 
-// input atom
+// === input atom ===
 export const InputElm = (
   type,
   fname = id,
@@ -128,7 +94,7 @@ export const InputElm = (
   return elm;
 };
 
-// button atom
+// === button atom ===
 export const ButtonElm = ({
   textContent = "",
   eventType = "click",
@@ -146,7 +112,7 @@ export const ButtonElm = ({
   return elm;
 };
 
-// ul atom
+// === ul atom ===
 export const UlElm = ({ id = "", className = "" } = {}) => {
   const elm = document.createElement("ul");
   elm.id = id;
@@ -154,7 +120,7 @@ export const UlElm = ({ id = "", className = "" } = {}) => {
   return elm;
 };
 
-// li atom
+// === li atom ===
 export const LiElm = (textContent, { id = "", className = "" } = {}) => {
   const elm = document.createElement("li");
   elm.textContent = textContent;
@@ -163,7 +129,7 @@ export const LiElm = (textContent, { id = "", className = "" } = {}) => {
   return elm;
 };
 
-// a atom
+// === a atom ===
 export const AnchorElm = (
   href,
   textContent,
@@ -177,7 +143,7 @@ export const AnchorElm = (
   return elm;
 };
 
-// svg atom
+// === svg atom ===
 export const SvgElm = (
   width = 24,
   height = 24,
@@ -193,7 +159,7 @@ export const SvgElm = (
   return elm;
 };
 
-// path atom
+// === path atom ===
 export const PathElm = (d, { id = "", className = "" } = {}) => {
   const elm = document.createElementNS(xmlns, "path");
   elm.setAttribute("d", d);

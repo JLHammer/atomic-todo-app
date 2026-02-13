@@ -1,20 +1,11 @@
 console.log("organisms.js loaded");
 
-import {
-  HeaderElm,
-  MainElm,
-  FormElm,
-  FieldsetElm,
-  LegendElm,
-  FooterElm,
-  HeadingElm,
-  SpanElm,
-} from "./atoms.js";
+import { BasicElm, FormElm, LegendElm, HeadingElm, TextElm } from "./atoms.js";
 import { Logo, H1, BurgerMenu, ToDoItem } from "./molecules.js";
 
 // header
 export function Header() {
-  const elm = HeaderElm({ className: "app-header" });
+  const elm = BasicElm("header", { className: "app-header" });
 
   const logo = Logo();
   const h1 = H1();
@@ -27,7 +18,7 @@ export function Header() {
 // For main - form group
 const FormGroup = (legendTitle) => {
   const elm = FormElm("GET", { id: "todo-form" });
-  const fieldset = FieldsetElm();
+  const fieldset = BasicElm("fieldset");
   const legend = LegendElm(legendTitle);
   const toDoItem = ToDoItem(OnDeleteButton, OnOrderButton);
   // Delete the additional todo items below later:
@@ -41,7 +32,7 @@ const FormGroup = (legendTitle) => {
 
 // main
 export function Main(ToDoListName, legendTitleToDO, legendTitleCompleted) {
-  const elm = MainElm({ className: "app-main" });
+  const elm = BasicElm("main", { className: "app-main" });
   const h2 = HeadingElm(ToDoListName, 2, { className: "main-title" });
   const formGroupToDo = FormGroup(legendTitleToDO);
   const formGroupCompleted = FormGroup(legendTitleCompleted);
@@ -51,10 +42,11 @@ export function Main(ToDoListName, legendTitleToDO, legendTitleCompleted) {
 
 // footer
 export function Footer() {
-  const elm = FooterElm({ className: "app-footer" });
-  const spanEducation = SpanElm("Web Developer");
-  const spanName = SpanElm("Jens L. Hammer");
-  const spanSchool = SpanElm("Tech College");
+  const elm = BasicElm("footer", { className: "app-footer" });
+  const spanEducation = TextElm("span", "Web Developer");
+  const spanName = TextElm("span", "Jens L. Hammer");
+  const spanSchool = TextElm("span", "Tech College");
+  spanSchool.textContent = "Tech College";
   elm.append(spanEducation, spanName, spanSchool);
   return elm;
 }

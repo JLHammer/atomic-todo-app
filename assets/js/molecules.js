@@ -3,20 +3,17 @@ console.log("molecules.js loaded");
 import {
   ImgElm,
   HeadingElm,
-  DivElm,
+  BasicElm,
   ButtonElm,
   SvgElm,
   PathElm,
-  FormElm,
-  FieldsetElm,
-  LegendElm,
   LabelElm,
   InputElm,
 } from "./atoms.js";
 
 // For header
 export const Logo = () => {
-  const elm = DivElm({ className: "logo-wrapper" });
+  const elm = BasicElm("div", { className: "logo-wrapper" });
 
   const img = ImgElm("./assets/images/logo-placeholder.png", "Logo", {
     className: "logo",
@@ -50,7 +47,7 @@ export const BurgerMenu = ({ onClick }) => {
 
 // For main
 export const ToDoItem = (onClickDeleteBtn, onClickOrderBtn) => {
-  const elm = DivElm({ className: "todo-group" });
+  const elm = BasicElm("div", { className: "todo-group" });
 
   const inputCheckBox = InputElm("checkbox", "todo-checkbox", {
     className: "todo-checkbox",
